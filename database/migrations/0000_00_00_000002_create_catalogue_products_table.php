@@ -14,8 +14,10 @@ class CreateCatalogueProductsTable extends Migration
     {
         Schema::create(Config::get('amethyst.catalogue-product.data.catalogue-product.table'), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->text('description')->nullable();
+            $table->integer('catalogue_id')->unsigned();
+            $table->foreign('catalogue_id')->references('id')->on(Config::get('amethyst.catalogue.data.catalogue.table'));
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on(Config::get('amethyst.product.data.product.table'));
             $table->timestamps();
             $table->softDeletes();
         });

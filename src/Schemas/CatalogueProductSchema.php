@@ -2,6 +2,8 @@
 
 namespace Railken\Amethyst\Schemas;
 
+use Railken\Amethyst\Managers\CatalogueManager;
+use Railken\Amethyst\Managers\ProductManager;
 use Railken\Lem\Attributes;
 use Railken\Lem\Schema;
 
@@ -16,10 +18,14 @@ class CatalogueProductSchema extends Schema
     {
         return [
             Attributes\IdAttribute::make(),
-            Attributes\TextAttribute::make('name')
-                ->setRequired(true)
-                ->setUnique(true),
-            Attributes\LongTextAttribute::make('description'),
+            Attributes\BelongsToAttribute::make('catalogue_id')
+                ->setRelationName('catalogue')
+                ->setRelationManager(CatalogueManager::class)
+                ->setRequired(true),
+            Attributes\BelongsToAttribute::make('product_id')
+                ->setRelationName('product')
+                ->setRelationManager(ProductManager::class)
+                ->setRequired(true),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),

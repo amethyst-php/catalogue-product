@@ -16,8 +16,8 @@ class CatalogueProductFaker extends Faker
         $faker = Factory::create();
 
         $bag = new Bag();
-        $bag->set('name', $faker->name);
-        $bag->set('description', $faker->text);
+        $bag->set('catalogue', CatalogueFaker::make()->parameters()->toArray());
+        $bag->set('product', ProductFaker::make()->parameters()->toArray());
 
         return $bag;
     }
