@@ -7,7 +7,8 @@
         "php": ">=7.1",
         "railken/amethyst-common": "0.1.*",
         "railken/amethyst-catalogue": "0.1.*",
-        "railken/amethyst-product": "0.1.*"
+        "railken/amethyst-product": "0.1.*",
+        "railken/amethyst-price": "0.1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.0",

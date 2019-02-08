@@ -2,7 +2,10 @@
 
 namespace Railken\Amethyst\Providers;
 
+use Illuminate\Support\Facades\Config;
 use Railken\Amethyst\Common\CommonServiceProvider;
+use Railken\Amethyst\Managers\CatalogueProductManager;
+use Railken\Amethyst\Models\CatalogueProduct;
 
 class CatalogueProductServiceProvider extends CommonServiceProvider
 {
@@ -14,5 +17,7 @@ class CatalogueProductServiceProvider extends CommonServiceProvider
         parent::register();
         $this->app->register(\Railken\Amethyst\Providers\CatalogueServiceProvider::class);
         $this->app->register(\Railken\Amethyst\Providers\ProductServiceProvider::class);
+
+        Config::set('amethyst.price.data.price.attributes.priceable.options.'.CatalogueProduct::class, CatalogueProductManager::class);
     }
 }

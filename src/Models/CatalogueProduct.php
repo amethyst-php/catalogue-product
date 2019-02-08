@@ -37,4 +37,12 @@ class CatalogueProduct extends Model implements EntityContract
     {
         return $this->belongsTo(Product::class);
     }
+
+    /**
+     * Get all prices.
+     */
+    public function prices()
+    {
+        return $this->morphMany(\Railken\Amethyst\Models\Price::class, 'priceable');
+    }
 }
