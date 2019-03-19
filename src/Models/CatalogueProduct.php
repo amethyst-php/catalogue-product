@@ -3,6 +3,9 @@
 namespace Railken\Amethyst\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Railken\Amethyst\Common\ConfigurableModel;
 use Railken\Lem\Contracts\EntityContract;
@@ -25,7 +28,7 @@ class CatalogueProduct extends Model implements EntityContract
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function catalogue()
+    public function catalogue(): BelongsTo
     {
         return $this->belongsTo(Catalogue::class);
     }
@@ -33,7 +36,7 @@ class CatalogueProduct extends Model implements EntityContract
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function product()
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
@@ -41,7 +44,7 @@ class CatalogueProduct extends Model implements EntityContract
     /**
      * Get all prices.
      */
-    public function prices()
+    public function prices(): MorphMany
     {
         return $this->morphMany(\Railken\Amethyst\Models\Price::class, 'priceable');
     }
