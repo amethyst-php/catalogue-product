@@ -29,7 +29,7 @@ class CatalogueProduct extends Model implements EntityContract
      */
     public function catalogue(): BelongsTo
     {
-        return $this->belongsTo(Catalogue::class);
+        return $this->belongsTo(config('amethyst.catalogue.data.catalogue.model'));
     }
 
     /**
@@ -37,7 +37,7 @@ class CatalogueProduct extends Model implements EntityContract
      */
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(config('amethyst.product.data.product.model'));
     }
 
     /**
@@ -45,6 +45,6 @@ class CatalogueProduct extends Model implements EntityContract
      */
     public function prices(): MorphMany
     {
-        return $this->morphMany(\Railken\Amethyst\Models\Price::class, 'priceable');
+        return $this->morphMany(config('amethyst.price.data.price.model'), 'priceable');
     }
 }
