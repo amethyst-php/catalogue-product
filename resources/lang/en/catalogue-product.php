@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'CatalogueProduct',
-    'description' => 'CatalogueProduct',
+    'name' => 'Catalogue Product',
+    'description' => 'Catalogue Product',
     'attributes' => []
 ];
