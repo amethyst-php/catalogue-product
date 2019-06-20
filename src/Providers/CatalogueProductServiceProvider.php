@@ -17,7 +17,11 @@ class CatalogueProductServiceProvider extends CommonServiceProvider
         parent::register();
         $this->app->register(\Railken\Amethyst\Providers\CatalogueServiceProvider::class);
         $this->app->register(\Railken\Amethyst\Providers\ProductServiceProvider::class);
+    }
 
-        Config::set('amethyst.price.data.price.attributes.priceable.options.'.CatalogueProduct::class, CatalogueProductManager::class);
+    public function boot()
+    {
+        parent::boot();
+        app('amethyst')->pushMorphRelation('price', 'priceable', 'catalogue-product');
     }
 }
