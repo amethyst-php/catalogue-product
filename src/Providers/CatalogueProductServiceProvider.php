@@ -2,10 +2,7 @@
 
 namespace Railken\Amethyst\Providers;
 
-use Illuminate\Support\Facades\Config;
 use Railken\Amethyst\Common\CommonServiceProvider;
-use Railken\Amethyst\Managers\CatalogueProductManager;
-use Railken\Amethyst\Models\CatalogueProduct;
 
 class CatalogueProductServiceProvider extends CommonServiceProvider
 {
