@@ -1,8 +1,8 @@
 <?php
 
-namespace Railken\Amethyst\Providers;
+namespace Amethyst\Providers;
 
-use Railken\Amethyst\Common\CommonServiceProvider;
+use Amethyst\Common\CommonServiceProvider;
 
 class CatalogueProductServiceProvider extends CommonServiceProvider
 {
@@ -12,8 +12,8 @@ class CatalogueProductServiceProvider extends CommonServiceProvider
     public function register()
     {
         parent::register();
-        $this->app->register(\Railken\Amethyst\Providers\CatalogueServiceProvider::class);
-        $this->app->register(\Railken\Amethyst\Providers\ProductServiceProvider::class);
+        $this->app->register(\Amethyst\Providers\CatalogueServiceProvider::class);
+        $this->app->register(\Amethyst\Providers\ProductServiceProvider::class);
     }
 
     public function boot()

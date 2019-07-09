@@ -1,9 +1,9 @@
 <?php
 
-namespace Railken\Amethyst\Schemas;
+namespace Amethyst\Schemas;
 
-use Railken\Amethyst\Managers\CatalogueManager;
-use Railken\Amethyst\Managers\ProductManager;
+use Amethyst\Managers\CatalogueManager;
+use Amethyst\Managers\ProductManager;
 use Railken\Lem\Attributes;
 use Railken\Lem\Schema;
 
