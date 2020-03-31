@@ -19,6 +19,5 @@ class CatalogueProductServiceProvider extends CommonServiceProvider
     public function boot()
     {
         parent::boot();
-        app('amethyst')->pushMorphRelation('price', 'priceable', 'catalogue-product');
     }
 }
